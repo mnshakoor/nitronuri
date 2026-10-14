@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nitro Nuri | NYC Press Photographer, Urban Art, Spoken Word</title>
+<meta name="description" content="New York press photographer and creative director of Haus of NY Urban Art and NuriA Productions. Photojournalism, editorial portraits, event video, and spoken word.">
+<meta property="og:title" content="Nitro Nuri | NYC Press Photographer, Urban Art, Spoken Word">
+<meta property="og:description" content="Photojournalism, editorial portraits, event video, and spoken word from New York.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/social-preview.jpg">
+<meta name="theme-color" content="#0b0707">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0707;
+  --bg-2:#120b0b;
+  --panel:#171010;
+  --line:rgba(255,255,255,.09);
+  --text:#efe8e4;
+  --muted:#a89c97;
+  --accent:#d2392a;
+  --accent-soft:rgba(210,57,42,.16);
+  --serif:"Instrument Serif",Georgia,serif;
+  --sans:"Inter",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --gutter:clamp(18px,4vw,56px);
+  --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.mono{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(2.4rem,6vw,4.6rem)}
+h2 em,h1 em{font-style:italic;color:var(--accent)}
+section{padding:clamp(72px,11vw,150px) 0;position:relative}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:end;margin-bottom:clamp(36px,6vw,72px)}
+.sec-head > p{color:var(--muted);max-width:460px;justify-self:end}
+@media(max-width:800px){.sec-head{grid-template-columns:1fr}.sec-head > p{justify-self:start}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,7,7,.88);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:1.6rem}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:34px;align-items:center}
+.links a{font-size:.88rem;color:var(--muted);transition:color .2s}
+.links a:hover{color:var(--text)}
+.pill{border:1px solid var(--line);padding:9px 20px;border-radius:999px;color:var(--text)!important;transition:background .2s,border-color .2s}
+.pill:hover{background:var(--accent);border-color:var(--accent)}
+.burger{display:none;background:none;border:0;color:var(--text);font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;cursor:pointer}
+@media(max-width:860px){
+  .links{position:fixed;inset:72px 0 auto 0;background:var(--bg);flex-direction:column;align-items:flex-start;padding:24px var(--gutter) 32px;gap:20px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .35s ease}
+  .links.open{transform:none}
+  .burger{display:block}
+}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 56px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(900px 500px at 75% 35%,#4a0f0a 0%,#150807 55%,#0b0707 100%);overflow:hidden}
+.hero-bg::before{content:"";position:absolute;top:0;bottom:0;right:-6%;width:66%;background:url("images/hero-red-landscape.jpg") 38% 30%/cover no-repeat}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0707 0%,#0b0707 28%,rgba(11,7,7,.55) 52%,rgba(11,7,7,.1) 100%),linear-gradient(180deg,rgba(11,7,7,.5) 0%,rgba(11,7,7,0) 30%,rgba(11,7,7,.95) 100%)}
+@media(max-width:900px){
+  .hero-bg::before{right:0;left:0;width:100%;background:url("images/hero-red-tight.jpg") center 8%/cover no-repeat}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(11,7,7,.35) 0%,rgba(11,7,7,.35) 30%,rgba(11,7,7,.92) 62%,#0b0707 100%)}
+}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(4.2rem,15vw,12.5rem);margin:18px 0 22px;line-height:.9}
+.hero-sub{max-width:620px;font-size:clamp(1.02rem,1.5vw,1.22rem);color:#d6ccc7}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-size:.92rem;font-weight:500;border:1px solid var(--line);transition:transform .2s,background .2s,border-color .2s;cursor:pointer;background:none;color:var(--text);font-family:var(--sans)}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);border-color:var(--accent)}
+.btn.primary:hover{background:#e04535}
+.btn.ghost:hover{border-color:var(--text)}
+.cred-line{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 28px}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:20px 0;background:var(--bg-2)}
+.marquee-track{display:flex;gap:54px;width:max-content;animation:slide 38s linear infinite}
+.marquee span{font-family:var(--serif);font-size:1.5rem;color:var(--muted);white-space:nowrap}
+.marquee span i{color:var(--accent);font-style:normal;margin-left:54px}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* work */
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,34px)}
+.card{display:block;position:relative}
+.card .ph{aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--panel);position:relative}
+.card .ph::before{content:"";position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ph::before{transform:scale(1.05)}
+.card .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,7,7,.7))}
+.card:nth-child(even){margin-top:clamp(0px,6vw,90px)}
+.c1 .ph::before{background-image:url("images/work-01.jpg"),linear-gradient(140deg,#3a0f0b,#120808)}
+.c2 .ph::before{background-image:url("images/work-02.jpg"),linear-gradient(140deg,#2b1410,#0e0808)}
+.c3 .ph::before{background-image:url("images/work-03.jpg"),linear-gradient(140deg,#35100c,#100808)}
+.c4 .ph::before{background-image:url("images/work-04.jpg"),linear-gradient(140deg,#241010,#0c0808)}
+.c5 .ph::before{background-image:url("images/work-05.jpg"),linear-gradient(140deg,#3a1510,#120909)}
+.c6 .ph::before{background-image:url("images/work-06.jpg"),linear-gradient(140deg,#2a0e0b,#0d0808)}
+.tag{position:absolute;top:16px;left:16px;z-index:2;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(11,7,7,.72);border:1px solid var(--line)}
+.card-meta{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;padding:20px 2px 0}
+.card-meta .n{font-family:var(--mono);font-size:.74rem;color:var(--accent);padding-top:7px}
+.card-meta h3{font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.1}
+.card-meta p{grid-column:2;color:var(--muted);font-size:.96rem}
+@media(max-width:700px){.work-grid{grid-template-columns:1fr}.card:nth-child(even){margin-top:0}}
+
+/* roles */
+.roles{background:var(--bg-2);border-block:1px solid var(--line)}
+.role{display:grid;grid-template-columns:90px 1fr 1.5fr;gap:24px;padding:34px 0;border-top:1px solid var(--line);align-items:baseline;transition:padding .3s,background .3s}
+.role:last-child{border-bottom:1px solid var(--line)}
+.role:hover{padding-left:14px}
+.role .n{font-family:var(--mono);font-size:.78rem;color:var(--accent)}
+.role h3{font-size:clamp(1.6rem,3vw,2.4rem)}
+.role h3 small{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.role p{color:var(--muted)}
+@media(max-width:800px){.role{grid-template-columns:56px 1fr;}.role p{grid-column:2}}
+
+/* sound */
+.sound{overflow:hidden}
+.sound-bg{position:absolute;inset:0;opacity:.28;background:url("images/sound-driftwood.jpg") center/cover no-repeat;filter:grayscale(1) contrast(1.1)}
+.sound::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,var(--bg) 0%,rgba(11,7,7,.6) 40%,var(--bg) 100%)}
+.sound .wrap{position:relative;z-index:2}
+.sound-intro{max-width:640px;color:#cfc4bf;font-size:1.08rem;margin-top:22px}
+.tracks{margin-top:50px;border-top:1px solid var(--line)}
+.track{display:grid;grid-template-columns:54px 1fr auto;gap:20px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.play{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .2s,border-color .2s}
+.play svg{width:12px;height:12px;fill:var(--text);margin-left:2px}
+.track:hover .play{background:var(--accent);border-color:var(--accent)}
+.track h3{font-size:1.5rem}
+.track p{color:var(--muted);font-size:.94rem}
+.embed-slot{margin-top:40px;border:1px dashed var(--line);border-radius:8px;padding:26px;color:var(--muted);font-size:.9rem}
+.embed-slot code{font-family:var(--mono);font-size:.8rem;color:var(--text)}
+.embed-slot iframe{width:100%;border:0;border-radius:6px}
+@media(max-width:600px){.track{grid-template-columns:44px 1fr}.track .mono{display:none}}
+
+/* credentials */
+.cred-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px)}
+.cred-list{list-style:none;border-top:1px solid var(--line)}
+.cred-list li{display:grid;grid-template-columns:60px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.cred-list .n{font-family:var(--mono);font-size:.76rem;color:var(--accent);padding-top:4px}
+.cred-list strong{font-weight:500;display:block;font-size:1.06rem}
+.cred-list span.sub{color:var(--muted);font-size:.92rem}
+.logos{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.logos span{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);padding:9px 16px;border-radius:999px;color:var(--muted)}
+@media(max-width:860px){.cred-wrap{grid-template-columns:1fr}}
+
+/* about */
+.about{background:var(--bg-2);border-top:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.about-img{aspect-ratio:4/5;border-radius:6px;background:url("images/about-headwrap.jpg") center/cover no-repeat,linear-gradient(160deg,#2c2118,#0e0a09)}
+.about-copy p{color:#cfc4bf;margin-top:18px;max-width:560px}
+.about-copy h2{margin:14px 0 8px}
+.rule{margin-top:28px;padding-left:20px;border-left:2px solid var(--accent);font-family:var(--serif);font-size:1.5rem;line-height:1.3;color:var(--text);max-width:520px}
+.bio{margin-top:32px;border:1px solid var(--line);border-radius:8px;padding:22px 24px}
+.bio p{margin-top:10px;font-size:.92rem;color:var(--muted)}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}.about-img{aspect-ratio:1/1}}
+
+/* analyst desk */
+.desk{padding:46px 0;border-block:1px solid var(--line);background:#0e0909}
+.desk-in{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+.desk-in p{color:var(--muted);max-width:420px;font-size:.94rem}
+.desk-links{display:flex;flex-wrap:wrap;gap:12px}
+.desk-links a{font-size:.86rem;border:1px solid var(--line);padding:9px 18px;border-radius:999px;color:var(--muted);transition:color .2s,border-color .2s}
+.desk-links a:hover{color:var(--text);border-color:var(--text)}
+
+/* faq */
+.faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px)}
+details{border-top:1px solid var(--line);padding:0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;gap:22px;align-items:baseline;padding:26px 0;font-size:1.18rem;font-weight:400}
+summary::-webkit-details-marker{display:none}
+summary .n{font-family:var(--mono);font-size:.76rem;color:var(--accent);min-width:34px}
+summary .pm{margin-left:auto;font-family:var(--mono);color:var(--muted);transition:transform .3s}
+details[open] summary .pm{transform:rotate(45deg);color:var(--accent)}
+details p{padding:0 0 28px 56px;color:var(--muted);max-width:620px}
+@media(max-width:860px){.faq-wrap{grid-template-columns:1fr}details p{padding-left:0}}
+
+/* contact */
+.contact{background:var(--bg-2);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px)}
+.contact h2{margin:14px 0 20px}
+.contact-copy p{color:var(--muted);max-width:430px}
+.socials{margin-top:34px;display:flex;flex-direction:column;gap:10px}
+.socials a{font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.socials a:hover{color:var(--accent)}
+form{display:grid;gap:22px}
+label{display:grid;gap:8px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+input,select,textarea{font:inherit;font-family:var(--sans);font-size:1rem;letter-spacing:0;text-transform:none;color:var(--text);background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 0;border-radius:0;outline:none;transition:border-color .2s}
+select option{background:var(--panel);color:var(--text)}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{min-height:110px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.note{font-size:.84rem;color:var(--muted)}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+
+/* footer */
+footer{padding:44px 0 56px;border-top:1px solid var(--line)}
+.foot{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:center;font-size:.84rem;color:var(--muted)}
+.foot nav{display:flex;gap:22px;flex-wrap:wrap}
+.foot a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo">Nitro <span>Nuri</span></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">MENU</button>
+    <nav class="links" id="links">
+      <a href="#work">Work</a>
+      <a href="#roles">Roles</a>
+      <a href="#sound">Sound</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="pill">Book an assignment</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <p class="eyebrow rv">Photojournalism &middot; Urban Art &middot; Spoken Word</p>
+    <h1 class="rv">Nitro <em>Nuri</em></h1>
+    <p class="hero-sub rv">I document what cities say about themselves: their parades, their margins, their faces. Then I write what the pictures leave out.</p>
+    <div class="hero-actions rv">
+      <a class="btn primary" href="#contact">Book an assignment &rarr;</a>
+      <a class="btn ghost" href="#work">See the work</a>
+    </div>
+    <div class="cred-line rv">
+      <span class="mono">NYC Registered Press Photographer</span>
+      <span class="mono">Creative Director, Haus of NY Urban Art</span>
+      <span class="mono">NuriA Productions</span>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Parades<i>/</i></span><span>Fashion Week<i>/</i></span><span>Portraits<i>/</i></span><span>Civic Life<i>/</i></span><span>Spoken Word<i>/</i></span><span>Event Video<i>/</i></span><span>Positive Peace<i>/</i></span>
+    <span>Parades<i>/</i></span><span>Fashion Week<i>/</i></span><span>Portraits<i>/</i></span><span>Civic Life<i>/</i></span><span>Spoken Word<i>/</i></span><span>Event Video<i>/</i></span><span>Positive Peace<i>/</i></span>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow rv">( Selected Work )</p><h2 class="rv">Civic life, <em>culture</em>, and craft.</h2></div>
+      <p class="rv">Documented in New York. Each project opens into a full gallery with context, credits, and video where it exists.</p>
+    </div>
+    <div class="work-grid">
+      <a class="card c1 rv" href="#contact" data-case="National Puerto Rican Day Parade">
+        <div class="ph"><span class="tag">Photojournalism</span></div>
+        <div class="card-meta"><span class="n">( 001 )</span><h3>National Puerto Rican Day Parade</h3><p>Identity, pride, and public space along Fifth Avenue.</p></div>
+      </a>
+      <a class="card c2 rv" href="#contact" data-case="Coney Island Mermaid Parade">
+        <div class="ph"><span class="tag">Photojournalism</span></div>
+        <div class="card-meta"><span class="n">( 002 )</span><h3>Coney Island Mermaid Parade</h3><p>A neighborhood performing its own mythology. 44th annual, June 2026.</p></div>
+      </a>
+      <a class="card c3 rv" href="#contact" data-case="New York Fashion Week">
+        <div class="ph"><span class="tag">Editorial</span></div>
+        <div class="card-meta"><span class="n">( 003 )</span><h3>New York Fashion Week</h3><p>Runway, backstage, and the street outside.</p></div>
+      </a>
+      <a class="card c4 rv" href="#contact" data-case="Portraits">
+        <div class="ph"><span class="tag">Portraiture</span></div>
+        <div class="card-meta"><span class="n">( 004 )</span><h3>Portraits</h3><p>Low light, direct gaze, nothing performed.</p></div>
+      </a>
+      <a class="card c5 rv" href="#contact" data-case="Journalism for Positive Peace">
+        <div class="ph"><span class="tag">Documentary</span></div>
+        <div class="card-meta"><span class="n">( 005 )</span><h3>Journalism for Positive Peace</h3><p>Civic events read through the IEP Positive Peace lens.</p></div>
+      </a>
+      <a class="card c6 rv" href="#sound">
+        <div class="ph"><span class="tag">Spoken word</span></div>
+        <div class="card-meta"><span class="n">( 006 )</span><h3>Nitro Nuri: Sound</h3><p>Tradecraft set to soul, jazz, and strings.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="roles" id="roles">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow rv">( Roles )</p><h2 class="rv">What I <em>do</em>.</h2></div>
+      <p class="rv">Four disciplines, one eye. Each can be commissioned on its own or combined on a single project.</p>
+    </div>
+    <div class="role rv"><span class="n">( 001 )</span><h3><small>On assignment</small>Press Photographer</h3><p>NYC Registered Press Photographer covering civic events, parades, protests, and public life. Available for assignment.</p></div>
+    <div class="role rv"><span class="n">( 002 )</span><h3><small>Haus of NY Urban Art</small>Creative Director</h3><p>Editorial, fashion, portrait, and fitness photography with a street-level eye. Work featured in Leica Fotografie International's beauty and fashion gallery.</p></div>
+    <div class="role rv"><span class="n">( 003 )</span><h3><small>NuriA Productions</small>Digital Content Producer</h3><p>Digital content and event video, from shoot to edit to publish. Coverage runs on NuriShakoorTV.</p></div>
+    <div class="role rv"><span class="n">( 004 )</span><h3><small>Nitro Nuri</small>Writer and Voice</h3><p>Spoken word built from analytic tradecraft: argument, metaphor, and systems thinking set to music.</p></div>
+  </div>
+</section>
+
+<!-- SOUND -->
+<section class="sound" id="sound">
+  <div class="sound-bg"></div>
+  <div class="wrap">
+    <p class="eyebrow rv">( Sound )</p>
+    <h2 class="rv">Nitro <em>Nuri</em></h2>
+    <p class="sound-intro rv">I am a researcher first. These pieces take the habits of analysis (claim, evidence, counterargument) and give them a pulse: 70s soul and spoken word, smooth jazz, soundtrack strings, and the occasional guitar that refuses to behave. Non-commercial, made to be heard.</p>
+    <div class="tracks">
+      <a class="track rv" href="https://soundcloud.com/" target="_blank" rel="noopener" data-sc="Linguistic Tradecraft"><span class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span><div><h3>Linguistic Tradecraft</h3><p>Words as instruments of precision and of cover.</p></div><span class="mono">SoundCloud</span></a>
+      <a class="track rv" href="https://soundcloud.com/" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span><div><h3>Analytic Rigor I &amp; II</h3><p>What it costs to be careful in a careless room.</p></div><span class="mono">SoundCloud</span></a>
+      <a class="track rv" href="https://soundcloud.com/" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span><div><h3>The Rose Fire Protocol</h3><p>[Your line]</p></div><span class="mono">SoundCloud</span></a>
+      <a class="track rv" href="https://soundcloud.com/" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span><div><h3>The Essay: MIND Under Siege</h3><p>An argument defended under pressure.</p></div><span class="mono">SoundCloud</span></a>
+      <a class="track rv" href="https://soundcloud.com/" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span><div><h3>The Orchard of Smoke</h3><p>[Your line]</p></div><span class="mono">SoundCloud</span></a>
+    </div>
+    <div class="embed-slot rv" id="embed-slot">
+      <!-- Replace this block with your SoundCloud embed iframe: SoundCloud > Share > Embed > copy code -->
+      Player slot: paste your SoundCloud embed code here in <code>index.html</code>, inside the element with id <code>embed-slot</code>. Update each track link above to its own SoundCloud URL.
+    </div>
+    <div class="hero-actions rv"><a class="btn ghost" href="https://soundcloud.com/" target="_blank" rel="noopener">Listen on SoundCloud &rarr;</a></div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credentials" style="border-top:1px solid var(--line)">
+  <div class="wrap cred-wrap">
+    <div>
+      <p class="eyebrow rv">( Credentials )</p>
+      <h2 class="rv" style="margin-top:14px">Credentials and <em>press</em>.</h2>
+      <p class="rv" style="color:var(--muted);margin-top:20px;max-width:420px">Verifiable standing, listed plainly. Portfolio profiles and platforms are linked where public.</p>
+      <div class="logos rv"><span>LFI</span><span>Stringr</span><span>500px</span><span>The Headshot Crew</span><span>Medium</span><span>YouTube</span></div>
+    </div>
+    <ul class="cred-list">
+      <li class="rv"><span class="n">( 001 )</span><div><strong>NYC Registered Press Photographer</strong><span class="sub">[Credential year]</span></div></li>
+      <li class="rv"><span class="n">( 002 )</span><div><strong>Leica Fotografie International</strong><span class="sub">Beauty and fashion gallery feature</span></div></li>
+      <li class="rv"><span class="n">( 003 )</span><div><strong>IEP Positive Peace Ambassador</strong><span class="sub">Journalism framed through Positive Peace</span></div></li>
+      <li class="rv"><span class="n">( 004 )</span><div><strong>Photojournalism contributor</strong><span class="sub">Stringr and StingersHub [confirm current or past]</span></div></li>
+      <li class="rv"><span class="n">( 005 )</span><div><strong>Portfolio profiles</strong><span class="sub">500px and The Headshot Crew</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-img rv" role="img" aria-label="Portrait of Nuri Shakoor wearing a grey head wrap and a Tuareg cross pendant"></div>
+    <div class="about-copy">
+      <p class="eyebrow rv">( About )</p>
+      <h2 class="rv">Two desks, <em>one</em> discipline.</h2>
+      <p class="rv">I am Nuri Shakoor. By day I am a global security analyst. I spent years as a government contractor, the type Washington calls a Beltway Bandit, and I now study how conflict, governance, and information shape each other.</p>
+      <p class="rv">The camera works the same way. A parade, a protest, a fashion week sidewalk: each is a system with incentives, symbols, and people negotiating space. I photograph the system and the person inside it.</p>
+      <p class="rv">Under Haus of NY Urban Art and NuriA Productions, I shoot editorial, portrait, and civic work across New York as a registered press photographer. As Nitro Nuri, I write spoken word that borrows the structure of an argued essay and the warmth of 70s soul.</p>
+      <p class="rule rv">Look longer than is comfortable, then say only what you can stand behind.</p>
+      <div class="bio rv"><span class="mono">Short bio for press kits</span><p>Nuri Shakoor is a New York press photographer, creative director of Haus of NY Urban Art and NuriA Productions, and spoken-word artist recording as Nitro Nuri. A global security analyst by profession, he documents civic life and culture through the lens of systems and Positive Peace.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ANALYST DESK -->
+<aside class="desk">
+  <div class="wrap desk-in">
+    <div><p class="eyebrow">The Analyst Desk</p><p style="margin-top:8px">The other half of the work: geopolitical risk analysis, conflict research, and data journalism.</p></div>
+    <div class="desk-links">
+      <a href="https://portfolio.mnshakoor.com" target="_blank" rel="noopener">Analytics Portfolio</a>
+      <a href="#" target="_blank" rel="noopener" id="dn-link">Digital Navigator</a>
+      <a href="https://newsletter.arac-international.org" target="_blank" rel="noopener">Flashpoints &amp; Frameworks</a>
+    </div>
+  </div>
+</aside>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap faq-wrap">
+    <div>
+      <p class="eyebrow rv">( FAQ )</p>
+      <h2 class="rv" style="margin-top:14px">Questions, <em>answered</em>.</h2>
+      <p class="rv" style="color:var(--muted);margin-top:20px;max-width:360px">Booking, licensing, and press access. Anything else, use the contact form.</p>
+    </div>
+    <div class="rv">
+      <details><summary><span class="n">001</span>Do you take editorial and news assignments?<span class="pm">+</span></summary><p>Yes. I am a registered press photographer in New York and cover civic events, cultural events, and breaking public activity. Send the date, location, and deadline.</p></details>
+      <details><summary><span class="n">002</span>Can I license an existing image?<span class="pm">+</span></summary><p>Yes. Name the image or series, the intended use, and the territory and duration. Licensing terms depend on use.</p></details>
+      <details><summary><span class="n">003</span>Do you shoot portraits and events?<span class="pm">+</span></summary><p>Yes: individual and professional portraits, editorial sessions, and event coverage. Rates are quoted per project.</p></details>
+      <details><summary><span class="n">004</span>Do you produce video?<span class="pm">+</span></summary><p>Yes, through NuriA Productions. Event coverage and short documentaries, with examples on NuriShakoorTV.</p></details>
+      <details><summary><span class="n">005</span>Is Nitro Nuri music for sale?<span class="pm">+</span></summary><p>No. The tracks are non-commercial and shared for listening. For collaboration or performance requests, use the contact form.</p></details>
+      <details><summary><span class="n">006</span>Where is your analytic work?<span class="pm">+</span></summary><p>On the analytics portfolio at <a href="https://portfolio.mnshakoor.com" style="color:var(--text);border-bottom:1px solid var(--accent)">portfolio.mnshakoor.com</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-copy">
+      <p class="eyebrow rv">( Contact )</p>
+      <h2 class="rv">Let's <em>work</em>.</h2>
+      <p class="rv">Assignments, licensing, portraits, and collaborations. I reply within two business days.</p>
+      <div class="socials rv">
+        <a href="https://instagram.com/nitronuri" target="_blank" rel="noopener">Instagram / @nitronuri</a>
+        <a href="https://www.youtube.com/@NuriShakoorTV" target="_blank" rel="noopener">YouTube / NuriShakoorTV</a>
+        <a href="https://soundcloud.com/" target="_blank" rel="noopener">SoundCloud / Nitro Nuri</a>
+      </div>
+    </div>
+    <form id="form" class="rv">
+      <div class="row">
+        <label>Name<input name="name" required autocomplete="name"></label>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+      </div>
+      <div class="row">
+        <label>Inquiry type
+          <select name="type">
+            <option>Assignment</option><option>Licensing</option><option>Portrait</option><option>Event video</option><option>Collaboration</option><option>Press</option>
+          </select>
+        </label>
+        <label>Date needed<input name="date" placeholder="Optional"></label>
+      </div>
+      <label>Message<textarea name="message" required></textarea></label>
+      <button class="btn primary" type="submit" style="justify-self:start">Send message &rarr;</button>
+      <p class="note" id="form-note">This opens your email app with the message filled in.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2026 Nuri Shakoor &middot; Haus of NY Urban Art &middot; NuriA Productions. All images &copy; Nuri Shakoor, all rights reserved.</span>
+    <nav>
+      <a href="https://instagram.com/nitronuri" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@NuriShakoorTV" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://portfolio.mnshakoor.com" target="_blank" rel="noopener">Analytics Portfolio</a>
+      <a href="#top">Top &uarr;</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// CONFIG: set these before launch
+var CONTACT_EMAIL = "your-email@example.com";            // inquiry destination
+var DIGITAL_NAVIGATOR_URL = "";                           // paste the Digital Navigator URL
+
+(function(){
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>30)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  var burger=document.getElementById('burger'),links=document.getElementById('links');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');burger.setAttribute('aria-expanded',open);
+  });
+  links.addEventListener('click',function(e){if(e.target.tagName==='A'){links.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+
+  var items=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    items.forEach(function(el){io.observe(el)});
+  }else{items.forEach(function(el){el.classList.add('in')})}
+
+  var dn=document.getElementById('dn-link');
+  if(DIGITAL_NAVIGATOR_URL){dn.href=DIGITAL_NAVIGATOR_URL}else{dn.style.display='none'}
+
+  // work cards prefill the inquiry subject
+  document.querySelectorAll('[data-case]').forEach(function(c){
+    c.addEventListener('click',function(){
+      var m=document.querySelector('#form textarea');
+      if(m&&!m.value){m.value='Re: '+c.getAttribute('data-case')+'. '}
+    });
+  });
+
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=e.target,d=new FormData(f);
+    var subject=encodeURIComponent('['+d.get('type')+'] Inquiry from '+d.get('name'));
+    var body=encodeURIComponent(
+      'Name: '+d.get('name')+'\nEmail: '+d.get('email')+'\nType: '+d.get('type')+'\nDate needed: '+(d.get('date')||'n/a')+'\n\n'+d.get('message'));
+    window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+subject+'&body='+body;
+  });
+})();
+</script>
+</body>
+</html>
