@@ -1,0 +1,15 @@
+{
+  "name": "Nitro Nuri",
+  "short_name": "Nitro Nuri",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0b0707",
+  "theme_color": "#0b0707",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

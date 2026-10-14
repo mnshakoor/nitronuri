@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nitronuri.mnshakoor.com/sitemap.xml
