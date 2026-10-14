@@ -158,8 +158,9 @@ section{padding:clamp(72px,11vw,150px) 0;position:relative}
 
 /* sound */
 .sound{overflow:hidden}
-.sound-bg{position:absolute;inset:0;opacity:.45;background:url("images/sound-driftwood.jpg") center/cover no-repeat;filter:grayscale(1) contrast(1.05) brightness(1.1)}
-.sound::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,var(--bg) 0%,rgba(11,7,7,.35) 30%,rgba(11,7,7,.4) 70%,var(--bg) 100%)}
+.sound-bg{position:absolute;inset:0;opacity:.45;background:url("images/sound-driftwood.jpg") center 8%/cover no-repeat;filter:grayscale(1) contrast(1.05) brightness(1.1)}
+@media(max-width:700px){.sound-bg{background-position:66% 8%}}
+.sound::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,var(--bg) 0%,rgba(11,7,7,.3) 14%,rgba(11,7,7,.35) 30%,rgba(11,7,7,.4) 70%,var(--bg) 100%)}
 .sound .wrap{position:relative;z-index:2}
 .sound-intro{max-width:640px;color:#cfc4bf;font-size:1.08rem;margin-top:22px}
 .tracks{margin-top:50px;border-top:1px solid var(--line)}
