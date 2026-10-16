@@ -116,6 +116,18 @@ section{padding:clamp(72px,11vw,150px) 0;position:relative}
 .btn.ghost:hover{border-color:var(--text)}
 .cred-line{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 28px}
 
+.feature{background:var(--bg);border-bottom:1px solid var(--line)}
+.feature-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,6vw,90px);align-items:center}
+.feature-art{position:relative;display:block;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.feature-art img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .6s}
+.feature-art:hover img{transform:scale(1.03)}
+.feature-play{position:absolute;left:20px;bottom:20px;width:64px;height:64px;border-radius:50%;background:rgba(210,57,42,.92);display:grid;place-items:center;transition:transform .25s,background .25s}
+.feature-play svg{width:20px;height:24px;margin-left:4px;fill:#fff}
+.feature-art:hover .feature-play{transform:scale(1.08);background:var(--accent)}
+.feature-copy h2{margin-top:14px}
+.feature-sub{margin-top:18px}
+.feature-copy>p.body{margin-top:22px;color:var(--muted);max-width:520px}
+@media(max-width:860px){.feature-grid{grid-template-columns:1fr}}
 /* strategic communications ticker */
 .ticker{display:flex;align-items:stretch;border-bottom:1px solid var(--line);background:var(--panel);overflow:hidden}
 .ticker[hidden]{display:none}
@@ -533,6 +545,26 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
     <div class="role rv"><span class="n">( 001 )</span><h3><small>Strategic Analysis &amp; Information</small>The Analyst</h3><div class="role-body"><p>Research, strategic intelligence, narrative analysis, and information environments, published as data journalism and strategic communications.</p><p class="tags"><a href="https://afsdata.arac-international.org" target="_blank" rel="noopener">ARAC International</a><a href="https://newsletter.arac-international.org" target="_blank" rel="noopener">Flashpoints &amp; Frameworks</a><a href="https://research.quanta-analytica.com" target="_blank" rel="noopener">Quanta Analytica</a><a href="https://portfolio.mnshakoor.com" target="_blank" rel="noopener">Analytics Portfolio</a><a href="https://digitalnavigator.mnshakoor.com" target="_blank" rel="noopener">The Digital Navigator</a></p></div></div>
     <div class="role rv"><span class="n">( 002 )</span><h3><small>Fieldwork &amp; Visual Journalism</small>The Field Observer</h3><div class="role-body"><p>Photojournalism, documentary photography, field research, and visual documentation. NYC Registered Press Photographer covering civic events, parades, protests, and public life. Available for assignment.</p><p class="tags"><a href="https://www.youtube.com/playlist?list=PLy7tLGxTQFga9mPjmCYVFbFsFle3Qin33" target="_blank" rel="noopener">Field Coverage Playlist</a></p></div></div>
     <div class="role rv"><span class="n">( 003 )</span><h3><small>Creative Media &amp; Expression</small>The Creator</h3><div class="role-body"><p>Music, spoken word, filmmaking, creative direction, and multimedia storytelling. Editorial, fashion, portrait, and fitness photography with a street-level eye, featured in Leica Fotografie International's beauty and fashion gallery. Coverage runs on NuriShakoorTV.</p><p class="tags"><a href="https://uabn-nyc.com" target="_blank" rel="noopener">Haus of NY Urban Art</a><a href="https://uabn-nyc.com" target="_blank" rel="noopener">NuriA Productions</a><a href="https://www.youtube.com/@NuriShakoorTV" target="_blank" rel="noopener">NuriShakoorTV</a><a href="https://on.soundcloud.com/8zciwji9Fo9Ssgp9Bw" target="_blank" rel="noopener">SoundCloud</a></p></div></div>
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature" id="feature">
+  <div class="wrap feature-grid">
+    <a class="feature-art rv" href="https://youtu.be/9hLkaCWFPz0" target="_blank" rel="noopener" aria-label="Watch the spoken word essay When the World Looked Away on YouTube">
+      <img src="images/feature-congo.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Cover art for When the World Looked Away: a portrait over the flag of the Democratic Republic of the Congo, with a weeping woman and child on one side and a soldier on a smoking hillside on the other">
+      <span class="feature-play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span>
+    </a>
+    <div class="feature-copy">
+      <p class="eyebrow rv">( Featured )</p>
+      <h2 class="rv">When the world <em>looked away</em>.</h2>
+      <p class="mono feature-sub rv">Sudan on Fire &middot; Congo in Flames</p>
+      <p class="body rv">Sudan and the Democratic Republic of the Congo are among the gravest crises of the moment, and among the least covered. This spoken word essay grew out of our analytic reports on both, and asks why the world keeps looking away.</p>
+      <div class="hero-actions rv">
+        <a class="btn primary" href="https://youtu.be/9hLkaCWFPz0" target="_blank" rel="noopener">Watch the essay &rarr;</a>
+        <a class="btn ghost" href="https://research.quanta-analytica.com" target="_blank" rel="noopener">Read the analysis</a>
+      </div>
+    </div>
   </div>
 </section>
 
