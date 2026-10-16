@@ -1,0 +1,50 @@
+name: Update newsletter ticker
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch newsletter feed and write feed.json
+        run: |
+          curl -fsSL --retry 3 -A "nitronuri-ticker" https://newsletter.arac-international.org/feed -o feed.xml
+          python3 - <<'PY'
+          import json, xml.etree.ElementTree as ET
+          from email.utils import parsedate_to_datetime
+          root = ET.parse("feed.xml").getroot()
+          items = []
+          for it in root.iter("item"):
+              title = (it.findtext("title") or "").strip()
+              link = (it.findtext("link") or "").strip()
+              pub = it.findtext("pubDate")
+              date = None
+              if pub:
+                  try:
+                      date = parsedate_to_datetime(pub).date().isoformat()
+                  except Exception:
+                      pass
+              if title and link:
+                  items.append({"title": title, "link": link, "date": date})
+          items = items[:12]
+          if not items:
+              raise SystemExit("feed had no items; keeping existing feed.json")
+          with open("feed.json", "w", encoding="utf-8") as f:
+              json.dump({"updated": items[0]["date"], "items": items}, f, ensure_ascii=False, indent=1)
+          PY
+          rm -f feed.xml
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- feed.json; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add feed.json
+          git commit -m "Refresh newsletter ticker"
+          git push
