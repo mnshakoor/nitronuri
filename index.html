@@ -288,6 +288,15 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
 .foot{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:center;font-size:.84rem;color:var(--muted)}
 .foot nav{display:flex;gap:22px;flex-wrap:wrap}
 .foot a:hover{color:var(--text)}
+
+/* Nitro Beats: visitor-initiated hero soundtrack */
+.hero-sound{display:flex;align-items:center;gap:12px;margin-top:18px;min-height:38px}
+.hero-sound button{background:rgba(16,12,12,.68);border:1px solid rgba(255,255,255,.22);border-radius:30px;color:#f5eeee;padding:10px 17px;cursor:pointer;font:inherit;font-size:.82rem;letter-spacing:.04em;transition:border-color .2s,background .2s}
+.hero-sound button:hover,.hero-sound button:focus-visible{border-color:var(--accent);background:rgba(40,20,20,.95)}
+.hero-sound button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.hero-sound .sound-status{font-size:.74rem;color:var(--muted);letter-spacing:.04em}
+.hero-sound[hidden]{display:none}
+
 </style>
 <script type="application/ld+json">
 {
@@ -475,6 +484,14 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
     <div class="hero-actions rv">
       <a class="btn primary" href="#contact">Book an assignment &rarr;</a>
       <a class="btn ghost" href="#work">See the work</a>
+    </div>
+
+    <div class="hero-sound rv" id="hero-sound" hidden>
+      <button type="button" id="sound-toggle" aria-label="Play Analytic Rigor Volume II">▶ Enable sound</button>
+      <span class="sound-status" id="sound-status" role="status">Nitro Beats · Analytic Rigor Vol. II</span>
+      <audio id="hero-audio" preload="none" loop>
+        <source src="audio/Analytic_Rigor_vol_II.mp3" type="audio/mpeg">
+      </audio>
     </div>
     <div class="cred-line rv">
       <span class="mono">NYC Registered Press Photographer</span>
@@ -776,5 +793,30 @@ var DIGITAL_NAVIGATOR_URL = "https://research.quanta-analytica.com/";           
   }).catch(function(){});
 })();
 </script>
+
+<script>
+/* Visitor initiated audio, respecting browser autoplay restrictions and reduced-motion/accessibility preferences. */
+(function(){
+  var wrap=document.getElementById('hero-sound'), audio=document.getElementById('hero-audio');
+  var button=document.getElementById('sound-toggle'), status=document.getElementById('sound-status');
+  if(!wrap||!audio||!button)return;
+  // Avoid offering a nonfunctional control until the published audio asset exists.
+  fetch('audio/Analytic_Rigor_vol_II.mp3',{method:'HEAD',cache:'no-store'})
+    .then(function(r){if(r.ok)wrap.hidden=false;})
+    .catch(function(){});
+  button.addEventListener('click',function(){
+    if(audio.paused){
+      audio.volume=.5;
+      var p=audio.play();
+      if(p&&p.catch)p.catch(function(){status.textContent='Playback unavailable';});
+    }else{audio.pause();}
+  });
+  audio.addEventListener('play',function(){button.textContent='Ⅱ Pause sound';button.setAttribute('aria-label','Pause Analytic Rigor Volume II');});
+  audio.addEventListener('pause',function(){button.textContent='▶ Enable sound';button.setAttribute('aria-label','Play Analytic Rigor Volume II');});
+  audio.addEventListener('error',function(){wrap.hidden=true;});
+  document.addEventListener('visibilitychange',function(){if(document.hidden&&!audio.paused)audio.pause();});
+})();
+</script>
+
 </body>
 </html>
