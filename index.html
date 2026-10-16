@@ -171,7 +171,12 @@ section{padding:clamp(72px,11vw,150px) 0;position:relative}
 .role h3{font-size:clamp(1.6rem,3vw,2.4rem)}
 .role h3 small{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .role p{color:var(--muted)}
-@media(max-width:800px){.role{grid-template-columns:56px 1fr;}.role p{grid-column:2}}
+.role-body p+p{margin-top:12px}
+.role .tags{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
+.role .tags a,.role .tags span{color:var(--muted)}
+.role .tags a{border-bottom:1px solid var(--accent);transition:color .2s}
+.role .tags a:hover{color:var(--text)}
+@media(max-width:800px){.role{grid-template-columns:56px 1fr;}.role-body{grid-column:2}}
 
 /* sound */
 .sound{overflow:hidden}
@@ -508,14 +513,11 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow rv">( Roles )</p><h2 class="rv">What I <em>do</em>.</h2></div>
-      <p class="rv">Six disciplines, one eye. Each can be commissioned on its own or combined on a single project.</p>
+      <p class="rv">Three disciplines, one method: observe, analyze, express. Each can be commissioned on its own or combined on a single project.</p>
     </div>
-    <div class="role rv"><span class="n">( 001 )</span><h3><small>On assignment</small>Press Photographer</h3><p>NYC Registered Press Photographer covering civic events, parades, protests, and public life. Available for assignment.</p></div>
-    <div class="role rv"><span class="n">( 002 )</span><h3><small>Haus of NY Urban Art</small>Creative Director</h3><p>Editorial, fashion, portrait, and fitness photography with a street-level eye. Work featured in Leica Fotografie International's beauty and fashion gallery.</p></div>
-    <div class="role rv"><span class="n">( 003 )</span><h3><small>NuriA Productions</small>Digital Content Producer</h3><p>Digital content and event video, from shoot to edit to publish. Coverage runs on NuriShakoorTV.</p></div>
-    <div class="role rv"><span class="n">( 004 )</span><h3><small>Nitro Nuri</small>Writer and Voice</h3><p>Spoken word built from analytic tradecraft: argument, metaphor, and systems thinking set to music.</p></div>
-    <div class="role rv"><span class="n">( 005 )</span><h3><small>ARAC International</small>Strategic Communications</h3><p>Analysis of how narratives, messaging, and information shape security and risk, published through the Flashpoints &amp; Frameworks newsletter.</p></div>
-    <div class="role rv"><span class="n">( 006 )</span><h3><small>Quanta Analytica</small>Data Journalism</h3><p>Data-driven reporting that pairs structured analysis with clear visuals and plain writing. See the <a href="https://portfolio.mnshakoor.com" target="_blank" rel="noopener" style="color:var(--text);border-bottom:1px solid var(--accent)">Analytics Portfolio</a>.</p></div>
+    <div class="role rv"><span class="n">( 001 )</span><h3><small>Strategic Analysis &amp; Information</small>The Analyst</h3><div class="role-body"><p>Research, strategic intelligence, narrative analysis, and information environments, published as data journalism and strategic communications.</p><p class="tags"><span>ARAC International</span><a href="https://newsletter.arac-international.org" target="_blank" rel="noopener">Flashpoints &amp; Frameworks</a><span>Quanta Analytica</span><a href="https://portfolio.mnshakoor.com" target="_blank" rel="noopener">Analytics Portfolio</a></p></div></div>
+    <div class="role rv"><span class="n">( 002 )</span><h3><small>Fieldwork &amp; Visual Journalism</small>The Field Observer</h3><div class="role-body"><p>Photojournalism, documentary photography, field research, and visual documentation. NYC Registered Press Photographer covering civic events, parades, protests, and public life. Available for assignment.</p></div></div>
+    <div class="role rv"><span class="n">( 003 )</span><h3><small>Creative Media &amp; Expression</small>The Creator</h3><div class="role-body"><p>Music, spoken word, filmmaking, creative direction, and multimedia storytelling. Editorial, fashion, portrait, and fitness photography with a street-level eye, featured in Leica Fotografie International's beauty and fashion gallery. Coverage runs on NuriShakoorTV.</p><p class="tags"><span>Haus of NY Urban Art</span><span>NuriA Productions</span><a href="https://www.youtube.com/@NuriShakoorTV" target="_blank" rel="noopener">NuriShakoorTV</a><a href="https://on.soundcloud.com/8zciwji9Fo9Ssgp9Bw" target="_blank" rel="noopener">SoundCloud</a></p></div></div>
   </div>
 </section>
 
