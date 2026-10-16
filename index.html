@@ -116,6 +116,22 @@ section{padding:clamp(72px,11vw,150px) 0;position:relative}
 .btn.ghost:hover{border-color:var(--text)}
 .cred-line{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 28px}
 
+/* strategic communications ticker */
+.ticker{display:flex;align-items:stretch;border-bottom:1px solid var(--line);background:var(--panel);overflow:hidden}
+.ticker[hidden]{display:none}
+.ticker-label{flex:none;display:flex;align-items:center;gap:10px;padding:0 clamp(16px,3vw,36px);background:var(--accent);color:#fff;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;position:relative;z-index:1}
+.ticker-label::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 2s ease-in-out infinite}
+.ticker-view{flex:1;overflow:hidden;padding:15px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent)}
+.ticker-track{display:flex;width:max-content;animation:tick var(--tick-dur,60s) linear infinite}
+.ticker:hover .ticker-track,.ticker:focus-within .ticker-track{animation-play-state:paused}
+.ticker-item{display:inline-flex;align-items:baseline;gap:14px;padding-right:44px;white-space:nowrap;font-size:.95rem;color:var(--text);transition:color .2s}
+.ticker-item:hover{color:var(--accent)}
+.ticker-item time{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ticker-item::after{content:"/";margin-left:30px;color:var(--accent)}
+@keyframes tick{to{transform:translateX(-50%)}}
+@keyframes pulse{50%{opacity:.35}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}.ticker-view{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.ticker-label::before{animation:none}}
+@media(max-width:560px){.ticker-label{font-size:.62rem;letter-spacing:.14em;padding:0 14px}.ticker-item{font-size:.88rem}}
 /* marquee */
 .marquee{border-block:1px solid var(--line);overflow:hidden;padding:20px 0;background:var(--bg-2)}
 .marquee-track{display:flex;gap:54px;width:max-content;animation:slide 38s linear infinite}
@@ -437,6 +453,11 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
   </div>
 </section>
 
+<aside class="ticker" id="ticker" aria-label="Strategic Communications: latest from the ARAC International newsletter">
+  <a class="ticker-label" href="https://newsletter.arac-international.org" target="_blank" rel="noopener">Strategic Communications</a>
+  <div class="ticker-view"><div class="ticker-track" id="ticker-track"><a class="ticker-item" href="https://newsletter.arac-international.org" target="_blank" rel="noopener">Read the latest from Flashpoints &amp; Frameworks</a></div></div>
+</aside>
+
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <span>Parades<i>/</i></span><span>Fashion Week<i>/</i></span><span>Portraits<i>/</i></span><span>Civic Life<i>/</i></span><span>Spoken Word<i>/</i></span><span>Event Video<i>/</i></span><span>Positive Peace<i>/</i></span>
@@ -671,6 +692,28 @@ var DIGITAL_NAVIGATOR_URL = "https://research.quanta-analytica.com/";           
       'Name: '+d.get('name')+'\nEmail: '+d.get('email')+'\nType: '+d.get('type')+'\nDate needed: '+(d.get('date')||'n/a')+'\n\n'+d.get('message'));
     window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+subject+'&body='+body;
   });
+})();
+</script>
+<script>
+/* Strategic Communications ticker: reads feed.json, which a scheduled workflow refreshes from the newsletter feed */
+(function(){
+  var track=document.getElementById('ticker-track');
+  if(!track)return;
+  fetch('feed.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+    var items=d&&d.items&&d.items.slice(0,12);
+    if(!items||!items.length)return;
+    function build(){
+      return items.map(function(it){
+        var a=document.createElement('a');a.className='ticker-item';a.href=it.link;a.target='_blank';a.rel='noopener';
+        if(it.date){var t=document.createElement('time');t.dateTime=it.date;
+          t.textContent=new Date(it.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});a.appendChild(t);}
+        a.appendChild(document.createTextNode(it.title));return a;});
+    }
+    track.textContent='';
+    build().forEach(function(a){track.appendChild(a)});
+    build().forEach(function(a){a.setAttribute('aria-hidden','true');a.tabIndex=-1;track.appendChild(a)});
+    track.style.setProperty('--tick-dur',Math.max(30,items.length*9)+'s');
+  }).catch(function(){});
 })();
 </script>
 </body>
