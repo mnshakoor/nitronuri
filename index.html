@@ -297,6 +297,20 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
 .hero-sound .sound-status{font-size:.74rem;color:var(--muted);letter-spacing:.04em}
 .hero-sound[hidden]{display:none}
 
+
+/* Documentary video collections */
+.video-collection{border-top:1px solid var(--line);background:var(--bg);padding:clamp(68px,8vw,120px) 0}
+.video-collection:nth-of-type(even){background:var(--bg-2)}
+.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,3vw,42px);margin-top:42px}
+.video-card{min-width:0}
+.video-frame{position:relative;aspect-ratio:16/9;background:#160d0d;border:1px solid var(--line);overflow:hidden;border-radius:5px}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-frame.short{aspect-ratio:9/16;max-width:310px}
+.video-card h3{font-size:clamp(1.25rem,2vw,1.75rem);margin-top:16px}
+.video-card .video-credit{font-size:.9rem;color:var(--muted);margin-top:6px;line-height:1.55}
+.video-card .video-link{display:inline-block;margin-top:9px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--accent)}
+@media(max-width:700px){.video-grid{grid-template-columns:1fr}.video-frame.short{margin-inline:auto}}
+
 </style>
 <script type="application/ld+json">
 {
@@ -521,11 +535,11 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
       <p class="rv">Cultral Events, Press Conferences, Political Protests, Civil Unrest, U.N. related events, Political Press Conferences, and Local Arts & Entertaninment.</p>
     </div>
     <div class="work-grid">
-      <a class="card c1 rv" href="#contact" data-case="National Puerto Rican Day Parade">
+      <a class="card c1 rv" href="#video-QQ4318M17HA" data-case="National Puerto Rican Day Parade">
         <div class="ph"><img class="sr-only" src="images/work-01.jpg" width="1000" height="1439" loading="lazy" alt="A parade marcher in a black and white bandana waves a black and white Puerto Rican flag on Fifth Avenue at the 2026 National Puerto Rican Day Parade in New York"><span class="tag">Photojournalism</span></div>
         <div class="card-meta"><span class="n">( 001 )</span><h3>National Puerto Rican Day Parade</h3><p>Identity, pride, and public space along Fifth Avenue.</p></div>
       </a>
-      <a class="card c2 rv" href="#contact" data-case="Coney Island Mermaid Parade">
+      <a class="card c2 rv" href="#video-4XbPuLZBA9k" data-case="Coney Island Mermaid Parade">
         <div class="ph"><img class="sr-only" src="images/work-02.jpg" width="1000" height="1250" loading="lazy" alt="Three costumed marchers at the Coney Island Mermaid Parade: a performer in a pink and purple winged headdress, a performer in a turquoise paper wig and corset, and a marcher in a blue wig and seashell crown blowing a kiss"><span class="tag">Photojournalism</span></div>
         <div class="card-meta"><span class="n">( 002 )</span><h3>Coney Island Mermaid Parade</h3><p>A neighborhood performing its own mythology. 44th annual, June 2026.</p></div>
       </a>
@@ -545,6 +559,69 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
         <div class="ph"><img class="sr-only" src="images/work-06.jpg" width="1000" height="1777" loading="lazy" alt="Cover art for Let Me Be Your Play Thang by Nitro Beats: a woman in profile rising from a burning red rose before a wall of news screens and the US Capitol dome"><span class="tag">Soundtrack</span></div>
         <div class="card-meta"><span class="n">( 006 )</span><h3>Nitro Nuri: Sound</h3><p>Tradecraft set to soul, jazz, and strings.</p></div>
       </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- VIDEO JOURNALISM -->
+<section class="video-collection" id="event-video" aria-labelledby="event-video-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow rv">( Field Coverage / 01 )</p><h2 class="rv" id="event-video-title">Culture &amp; <em>public life</em>.</h2></div>
+      <p class="rv">Video documentation of New York City's public celebrations and cultural events.</p>
+    </div>
+    <div class="video-grid">
+      <article class="video-card rv" id="video-QQ4318M17HA">
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/QQ4318M17HA" title="National Puerto Rican Day Parade" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <h3>National Puerto Rican Day Parade</h3><p class="video-credit">Field coverage of New York City's Puerto Rican Day Parade.</p>
+        <a class="video-link" href="https://youtu.be/QQ4318M17HA" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </article>
+      <article class="video-card rv" id="video-4XbPuLZBA9k">
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/4XbPuLZBA9k" title="Coney Island Mermaid Parade" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <h3>Coney Island Mermaid Parade</h3><p class="video-credit">Visual coverage of the Coney Island Mermaid Parade.</p>
+        <a class="video-link" href="https://youtu.be/4XbPuLZBA9k" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="video-collection" id="political-protests" aria-labelledby="political-protests-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow rv">( Field Coverage / 02 )</p><h2 class="rv" id="political-protests-title">Political Protests &amp; <em>Civil Unrest</em>.</h2></div>
+      <p class="rv">Documentary footage, interviews, and field reporting on civic mobilization, displacement, political participation, and human rights. Perspectives expressed by participants are their own.</p>
+    </div>
+    <div class="video-grid">
+      <article class="video-card rv" id="video-ctwODk2AnXU">
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/ctwODk2AnXU" title="DR Congo: Displacement Footage" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <h3>DR Congo: Displacement Footage</h3><p class="video-credit">Original displacement footage by the World Food Programme. Edited and published by Nuri Shakoor for ARAC International.</p>
+        <a class="video-link" href="https://youtu.be/ctwODk2AnXU" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </article>
+      <article class="video-card rv" id="video-POQW8kd2-ag">
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/POQW8kd2-ag" title="UNGA 81: Protest Coverage" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <h3>UNGA 81: Protest Coverage</h3><p class="video-credit">Coverage of demonstrations during the 81st United Nations General Assembly.</p>
+        <a class="video-link" href="https://youtu.be/POQW8kd2-ag" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </article>
+      <article class="video-card rv" id="video-PYTRuOidAXE">
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/PYTRuOidAXE" title="Sierra Leone: President Bio Addresses Supporters and Protesters" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <h3>Sierra Leone: President Bio Addresses Supporters and Protesters</h3><p class="video-credit">Coverage of the president's appearance before supporters and protesters.</p>
+        <a class="video-link" href="https://youtu.be/PYTRuOidAXE" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </article>
+      <article class="video-card rv" id="video-VxudKXBiYBA">
+        <div class="video-frame short"><iframe src="https://www.youtube-nocookie.com/embed/VxudKXBiYBA" title="Mauritania: Interview with Bakary Tandia" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <h3>Mauritania: Interview with Bakary Tandia</h3><p class="video-credit">Discussion of instability and human rights issues in Mauritania. Vertical video interview.</p>
+        <a class="video-link" href="https://youtu.be/VxudKXBiYBA" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </article>
+      <article class="video-card rv" id="video-2BScxgopG6Y">
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/2BScxgopG6Y" title="A Walk with NYC Mayoral Candidates" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <h3>A Walk with NYC Mayoral Candidates</h3><p class="video-credit">Field footage featuring New York City mayoral candidates.</p>
+        <a class="video-link" href="https://youtu.be/2BScxgopG6Y" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </article>
+      <article class="video-card rv" id="video-mn3dKglt_LM">
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/mn3dKglt_LM" title="Congolese Tutsi Protest at UNGA" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <h3>Congolese Tutsi Protest at UNGA</h3><p class="video-credit">Coverage of a Congolese Tutsi protest during the United Nations General Assembly.</p>
+        <a class="video-link" href="https://youtu.be/mn3dKglt_LM" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+      </article>
     </div>
   </div>
 </section>
