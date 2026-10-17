@@ -101,8 +101,10 @@ section{padding:clamp(72px,11vw,150px) 0;position:relative}
 .hero-bg::before{content:"";position:absolute;top:0;bottom:0;right:-6%;width:66%;background:url("images/hero-red-landscape.jpg") 38% 30%/cover no-repeat;filter:brightness(.85)}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0707 0%,#0b0707 36%,rgba(11,7,7,.6) 46%,rgba(11,7,7,.15) 58%,rgba(11,7,7,0) 70%),linear-gradient(180deg,rgba(11,7,7,.25) 0%,rgba(11,7,7,0) 25%,rgba(11,7,7,0) 82%,rgba(11,7,7,.75) 100%)}
 @media(max-width:900px){
-  .hero-bg::before{right:0;left:0;bottom:auto;height:72%;width:100%;background:url("images/hero-red-tight.jpg") 62% 10%/cover no-repeat}
-  .hero-bg::after{background:linear-gradient(180deg,rgba(11,7,7,.15) 0%,rgba(11,7,7,0) 30%,rgba(11,7,7,0) 52%,rgba(11,7,7,.85) 72%,#0b0707 86%)}
+  .hero{--ph:clamp(340px,118vw,680px);align-items:flex-start;padding-top:calc(var(--ph) - 30px)}
+  .hero-bg{background:#0b0707}
+  .hero-bg::before{right:0;left:0;bottom:auto;height:var(--ph);width:100%;background:url("images/hero-red-tight.jpg") 62% 6%/cover no-repeat}
+  .hero-bg::after{inset:0 0 auto 0;height:var(--ph);background:linear-gradient(180deg,rgba(11,7,7,.35) 0%,rgba(11,7,7,0) 22%,rgba(11,7,7,0) 50%,rgba(11,7,7,.55) 72%,rgba(11,7,7,.92) 90%,#0b0707 100%)}
 }
 .hero .wrap{position:relative;z-index:2;width:100%}
 .hero h1{font-size:clamp(4.2rem,15vw,12.5rem);margin:18px 0 22px;line-height:.9}
