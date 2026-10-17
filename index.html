@@ -302,6 +302,8 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
 .hero-sound button{background:rgba(16,12,12,.68);border:1px solid rgba(255,255,255,.22);border-radius:30px;color:#f5eeee;padding:10px 17px;cursor:pointer;font:inherit;font-size:.82rem;letter-spacing:.04em;transition:border-color .2s,background .2s}
 .hero-sound button:hover,.hero-sound button:focus-visible{border-color:var(--accent);background:rgba(40,20,20,.95)}
 .hero-sound button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.hero-sound #sound-next{padding:10px 14px}
+.hero-sound #sound-next[hidden]{display:none}
 .hero-sound .sound-status{font-size:.74rem;color:var(--muted);letter-spacing:.04em}
 .hero-sound[hidden]{display:none}
 
@@ -512,11 +514,10 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
     </div>
 
     <div class="hero-sound rv" id="hero-sound" hidden>
-      <button type="button" id="sound-toggle" aria-label="Play Analytic Rigor Volume II">▶ Enable sound</button>
-      <span class="sound-status" id="sound-status" role="status">Nitro Beats · Analytic Rigor Vol. II</span>
-      <audio id="hero-audio" preload="none" loop>
-        <source src="audio/Analytic_Rigor_vol_II.mp3" type="audio/mpeg">
-      </audio>
+      <button type="button" id="sound-toggle" aria-label="Play Nitro Beats">&#9654; Enable sound</button>
+      <button type="button" id="sound-next" aria-label="Next track" hidden>Next &#9656;</button>
+      <span class="sound-status" id="sound-status" role="status">Nitro Beats &middot; Analytic Rigor Vol. II</span>
+      <audio id="hero-audio" preload="none"></audio>
     </div>
     <div class="cred-line rv">
       <span class="mono">NYC Registered Press Photographer</span>
@@ -863,25 +864,47 @@ var DIGITAL_NAVIGATOR_URL = "https://research.quanta-analytica.com/";           
 </script>
 
 <script>
-/* Visitor initiated audio, respecting browser autoplay restrictions and reduced-motion/accessibility preferences. */
+/* Visitor initiated audio playlist. Starts only after a click (browser autoplay rules), plays each track in turn,
+   loops back to the first track, pauses when the tab is hidden, and skips any track that fails to load. */
 (function(){
   var wrap=document.getElementById('hero-sound'), audio=document.getElementById('hero-audio');
-  var button=document.getElementById('sound-toggle'), status=document.getElementById('sound-status');
+  var button=document.getElementById('sound-toggle'), nextBtn=document.getElementById('sound-next'), status=document.getElementById('sound-status');
   if(!wrap||!audio||!button)return;
-  // Avoid offering a nonfunctional control until the published audio asset exists.
-  fetch('audio/Analytic_Rigor_vol_II.mp3',{method:'HEAD',cache:'no-store'})
+  var tracks=[
+    {t:'Analytic Rigor Vol. II',f:'Analytic_Rigor_vol_II.mp3'},
+    {t:'Let Me Be Your Play Thang (Instrumental and Backing Vocals)',f:'Let Me Be Your Play Thang Instrumental and Backing Vocals.m4a'},
+    {t:'Play Thang, Clear The Noise',f:'Play Thang - Clear The Noise.mp3'},
+    {t:'Six-Nine-Nine-Five (Album Version)',f:'Six-Nine-Nine-Five (album version).mp3'},
+    {t:'Smoke In The Room',f:'Smoke In The Room.mp3'},
+    {t:'Smoke Intoxicated (Smoke In the House Remix)',f:'Smoke Intoxicated - Smoke In the House Remix.mp3'},
+    {t:'The Essay: MIND Under Siege (Underground Remix)',f:'The Essay - MIND Under Siege (Underground Remix).mp3'},
+    {t:'The Essay: MIND Under Siege, The 2nd Coming v1',f:'The Essay - MIND Under Siege The 2nd Coming v1.mp3'}
+  ];
+  var idx=0, loaded=false, failures=0;
+  function label(){status.textContent='Nitro Beats \u00b7 '+tracks[idx].t;}
+  function load(){audio.src='audio/'+encodeURIComponent(tracks[idx].f);loaded=true;label();}
+  function start(){
+    audio.volume=.5;
+    var p=audio.play();
+    if(p&&p.catch)p.catch(function(){if(audio.paused&&!audio.error)status.textContent='Playback unavailable';});
+  }
+  function advance(){idx=(idx+1)%tracks.length;load();start();}
+  // Only offer the control once the first published track exists.
+  fetch('audio/'+encodeURIComponent(tracks[0].f),{method:'HEAD',cache:'no-store'})
     .then(function(r){if(r.ok)wrap.hidden=false;})
     .catch(function(){});
   button.addEventListener('click',function(){
-    if(audio.paused){
-      audio.volume=.5;
-      var p=audio.play();
-      if(p&&p.catch)p.catch(function(){status.textContent='Playback unavailable';});
-    }else{audio.pause();}
+    if(audio.paused){if(!loaded)load();start();}else{audio.pause();}
   });
-  audio.addEventListener('play',function(){button.textContent='Ⅱ Pause sound';button.setAttribute('aria-label','Pause Analytic Rigor Volume II');});
-  audio.addEventListener('pause',function(){button.textContent='▶ Enable sound';button.setAttribute('aria-label','Play Analytic Rigor Volume II');});
-  audio.addEventListener('error',function(){wrap.hidden=true;});
+  nextBtn.addEventListener('click',advance);
+  audio.addEventListener('play',function(){failures=0;nextBtn.hidden=false;button.textContent='\u2161 Pause sound';button.setAttribute('aria-label','Pause Nitro Beats');});
+  audio.addEventListener('pause',function(){button.textContent='\u25b6 Enable sound';button.setAttribute('aria-label','Play Nitro Beats');});
+  audio.addEventListener('ended',advance);
+  audio.addEventListener('error',function(){
+    failures++;
+    if(failures>=tracks.length){wrap.hidden=true;return;}
+    if(loaded)advance();
+  });
   document.addEventListener('visibilitychange',function(){if(document.hidden&&!audio.paused)audio.pause();});
 })();
 </script>
