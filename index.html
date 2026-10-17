@@ -98,7 +98,7 @@ section{padding:clamp(72px,11vw,150px) 0;position:relative}
 /* hero */
 .hero{min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 56px;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(900px 500px at 75% 35%,#4a0f0a 0%,#150807 55%,#0b0707 100%);overflow:hidden}
-.hero-bg::before{content:"";position:absolute;top:0;bottom:0;right:-6%;width:66%;background:url("images/hero-red-landscape.jpg") 38% 30%/cover no-repeat}
+.hero-bg::before{content:"";position:absolute;top:0;bottom:0;right:-6%;width:66%;background:url("images/hero-red-landscape.jpg") 38% 30%/cover no-repeat;filter:brightness(.85)}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0707 0%,#0b0707 36%,rgba(11,7,7,.6) 46%,rgba(11,7,7,.15) 58%,rgba(11,7,7,0) 70%),linear-gradient(180deg,rgba(11,7,7,.25) 0%,rgba(11,7,7,0) 25%,rgba(11,7,7,0) 82%,rgba(11,7,7,.75) 100%)}
 @media(max-width:900px){
   .hero-bg::before{right:0;left:0;bottom:auto;height:72%;width:100%;background:url("images/hero-red-tight.jpg") 62% 10%/cover no-repeat}
