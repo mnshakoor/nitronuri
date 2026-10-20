@@ -274,7 +274,11 @@ details p{padding:0 0 28px 56px;color:var(--muted);max-width:620px}
 @media(max-width:860px){.faq-wrap{grid-template-columns:1fr}details p{padding-left:0}}
 
 /* contact */
-.contact{background:var(--bg-2);border-top:1px solid var(--line)}
+.contact{background:var(--bg-2);border-top:1px solid var(--line);position:relative;overflow:hidden}
+.contact-bg{position:absolute;inset:0;opacity:.5;background:url("images/closing-studio.jpg") center 30%/cover no-repeat;filter:brightness(1.25) contrast(1.05)}
+.contact::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,var(--bg-2) 0%,rgba(11,7,7,.35) 28%,rgba(11,7,7,.4) 72%,var(--bg-2) 100%)}
+.contact .wrap{position:relative;z-index:2}
+@media(max-width:700px){.contact-bg{background-position:42% 20%}}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px)}
 .contact h2{margin:14px 0 20px}
 .contact-copy p{color:var(--muted);max-width:430px}
@@ -745,6 +749,7 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
+  <div class="contact-bg" role="img" aria-label="Nuri Shakoor seated in a dark recording studio with sunglasses on his head wrap and a microphone behind him"></div>
   <div class="wrap contact-grid">
     <div class="contact-copy">
       <p class="eyebrow rv">( Contact )</p>
@@ -778,7 +783,6 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
 </section>
 
 <section class="closing" aria-label="Studio portrait and signature artwork">
-  <figure class="rv"><img class="studio" src="images/closing-studio.jpg" width="1300" height="1646" loading="lazy" decoding="async" alt="Nuri Shakoor seated in a dark recording studio with sunglasses on his head wrap and a microphone behind him"></figure>
   <figure class="rv"><img class="signal" src="images/closing-signal.jpg" width="1800" height="1021" loading="lazy" decoding="async" alt="Green and gold artwork: a portrait above a glowing map of Africa, flanked by chess pieces, a compass, an Eye of Horus, an ankh, doves, and a rose"></figure>
 </section>
 
