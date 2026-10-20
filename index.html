@@ -228,6 +228,11 @@ section{padding:clamp(72px,11vw,150px) 0;position:relative}
 /* credentials */
 .logos a{transition:color .2s,border-color .2s}
 .logos a:hover{color:var(--text);border-color:var(--accent)}
+.cred-section{overflow:hidden}
+.cred-bg{position:absolute;inset:0;opacity:.34;background:url("images/credentials-field.jpg") center 14%/cover no-repeat;filter:contrast(1.05)}
+.cred-section::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,var(--bg) 0%,rgba(11,7,7,.45) 26%,rgba(11,7,7,.5) 74%,var(--bg) 100%)}
+.cred-section .wrap{position:relative;z-index:2}
+@media(max-width:700px){.cred-bg{background-position:56% 12%}}
 .cred-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px)}
 .cred-list{list-style:none;border-top:1px solid var(--line)}
 .cred-list li{display:grid;grid-template-columns:60px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
@@ -682,7 +687,8 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
 </section>
 
 <!-- CREDENTIALS -->
-<section id="credentials" style="border-top:1px solid var(--line)">
+<section class="cred-section" id="credentials" style="border-top:1px solid var(--line)">
+  <div class="cred-bg" role="img" aria-label="Nuri Shakoor in black beanie and aviator sunglasses stepping onto a hard case with a field bag, beside a private jet on a desert airstrip"></div>
   <div class="wrap cred-wrap">
     <div>
       <p class="eyebrow rv">( Credentials )</p>
